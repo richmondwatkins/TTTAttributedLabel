@@ -817,6 +817,8 @@ static inline CGSize CTFramesetterSuggestFrameSizeForAttributedStringWithConstra
             CFRange lastLineRange = CTLineGetStringRange(line);
 
             if (!(lastLineRange.length == 0 && lastLineRange.location == 0) && lastLineRange.location + lastLineRange.length < textRange.location + textRange.length) {
+                self.isTruncated = YES;
+                
                 // Get correct truncationType and attribute position
                 CTLineTruncationType truncationType;
                 CFIndex truncationAttributePosition = lastLineRange.location;

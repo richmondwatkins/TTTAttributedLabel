@@ -75,6 +75,7 @@ extern NSString * const kTTTBackgroundCornerRadiusAttributeName;
 // Override UILabel @property to accept both NSString and NSAttributedString
 @protocol TTTAttributedLabel <NSObject>
 @property (nonatomic, copy) IBInspectable id text;
+@property BOOL isTruncated;
 @end
 
 IB_DESIGNABLE
@@ -115,6 +116,8 @@ IB_DESIGNABLE
 ///-----------------------------
 /// @name Accessing the Delegate
 ///-----------------------------
+
+@property BOOL isTruncated;
 
 /**
  The receiver's delegate.
@@ -677,5 +680,6 @@ typedef void (^TTTAttributedLabelLinkBlock) (TTTAttributedLabel *, TTTAttributed
  */
 - (instancetype)initWithAttributesFromLabel:(TTTAttributedLabel*)label
                          textCheckingResult:(NSTextCheckingResult *)result;
+
 
 @end
